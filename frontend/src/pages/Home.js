@@ -641,26 +641,6 @@ function Home() {
                 )}
               />
 
-              <button
-                id="test-candidate-login"
-                className="hs-test-btn"
-                onClick={async () => {
-                  try {
-                    const res = await axios.post(
-                      `${process.env.REACT_APP_BACKEND_URL}/api/auth/google/`,
-                      { id_token: "test-token" }
-                    );
-                    localStorage.setItem("token", res.data.access);
-                    localStorage.setItem("user", JSON.stringify(res.data.user));
-                    window.location.href = "/candidate-dashboard";
-                  } catch (err) {
-                    console.error("Test login failed", err);
-                  }
-                }}
-              >
-                Dev Candidate Login (Test Bypass)
-              </button>
-
               <p className="hs-terms">
                 By logging in, you agree to our Terms of Service and data privacy policies.
               </p>
